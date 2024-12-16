@@ -1,0 +1,54 @@
+<!-- templates/index.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <h1>Manage Your Finances</h1>
+        <p>Track your spending, save better, and reach your financial goals effortlessly.</p>
+        <a href="/import_data" class="cta-btn">Get Started</a>
+    </div>
+    <img src="https://i.pinimg.com/736x/3e/88/69/3e88691410ea0c7bdf52104a3277af83.jpg" alt="Financial Management">
+</section>
+
+<section class="dashboard">
+    <h2>Dashboard Features</h2>
+    <div class="features">
+        <div class="dashboard-card">
+            <img src="https://img.icons8.com/color/80/000000/budget.png" alt="Set Budget">
+            <h3>Set Budget</h3>
+            <p>Define your monthly spending limits and track expenses effectively.</p>
+            <a href="/set_budget" class="dashboard-btn">Set Now</a>
+        </div>
+
+        <div class="dashboard-card">
+            <img src="https://img.icons8.com/color/80/000000/money.png" alt="Set Income">
+            <h3>Set Income</h3>
+            <p>Input your monthly income sources to manage your finances better.</p>
+            <a href="/set_income" class="dashboard-btn">Set Now</a>
+        </div>
+
+        <div class="dashboard-card">
+            <img src="https://img.icons8.com/color/80/000000/goal.png" alt="Set Goals">
+            <h3>Set Goals</h3>
+            <p>Define your financial goals and track your progress towards achieving them.</p>
+            <a href="/set_goals" class="dashboard-btn">Set Now</a>
+        </div>
+
+        <div class="dashboard-card">
+            <img src="https://img.icons8.com/color/80/000000/report-card.png" alt="Reports">
+            <h3>View Reports</h3>
+            <p>Get detailed visual reports of your income and spending patterns.</p>
+            <a href="/report" class="dashboard-btn">View Reports</a>
+        </div>
+
+        <div class="dashboard-card">
+            <img src="https://img.icons8.com/color/80/000000/upload.png" alt="Import Data">
+            <h3>Import Data</h3>
+            <p>Upload your own CSV or Excel files to manage your financial data.</p>
+            <a href="/import_data" class="dashboard-btn">Import Now</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

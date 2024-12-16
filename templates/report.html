@@ -1,0 +1,42 @@
+<!-- templates/report.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Financial Report</h1>
+    <div class="plot-container">
+        {{ forecast_plot|safe }}
+    </div>
+
+    <h2>Goal Achievements</h2>
+    {% if not goal_achievements.empty %}
+    <table>
+        <thead>
+            <tr>
+                <th>Goal</th>
+                <th>Target Amount (IDR)</th>
+                <th>Achievement Month</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in goal_achievements.itertuples() %}
+            <tr>
+                <td>{{ row.Goal }}</td>
+                <td>IDR {{ row._2 }}</td>
+                <td>
+                    {% if row._3 != 'Not achieved within forecast period' %}
+                        <a href="{{ url_for('goal_progress', goal_name=row.Goal) }}">{{ row._3 }}</a>
+                    {% else %}
+                        {{ row._3 }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No financial goals available to display.</p>
+    {% endif %}
+</div>
+{% endblock %}

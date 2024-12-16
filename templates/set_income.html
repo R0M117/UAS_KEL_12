@@ -1,0 +1,24 @@
+<!-- templates/set_income.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Set Your Income</h1>
+    <form action="{{ url_for('set_income') }}" method="POST" class="import-form">
+        <div class="form-group">
+            <label for="date">Enter Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="source">Enter Source:</label>
+            <input type="text" id="source" name="source" placeholder="e.g., Salary, Freelance" required>
+        </div>
+        <div class="form-group">
+            <label for="amount">Enter Amount (in IDR):</label>
+            <input type="number" id="amount" name="amount" placeholder="e.g., 5000000" required>
+        </div>
+        <button type="submit" class="btn">Submit Income</button>
+    </form>
+</div>
+{% endblock %}

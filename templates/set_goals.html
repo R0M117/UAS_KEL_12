@@ -1,0 +1,24 @@
+<!-- templates/set_goals.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Set Your Financial Goal</h1>
+    <form action="{{ url_for('set_goals') }}" method="POST" class="import-form">
+        <div class="form-group">
+            <label for="goal">Enter Goal:</label>
+            <input type="text" id="goal" name="goal" placeholder="e.g., Save for a Vacation, Emergency Fund" required>
+        </div>
+        <div class="form-group">
+            <label for="target">Enter Target Amount (in IDR):</label>
+            <input type="number" id="target" name="target" placeholder="e.g., 10000000" required>
+        </div>
+        <button type="submit" class="btn">Submit Goal</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 FinTrack. All rights reserved.</p>
+</footer>
+{% endblock %}

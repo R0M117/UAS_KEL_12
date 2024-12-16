@@ -1,0 +1,40 @@
+<!-- templates/view_income.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Your Income Data</h1>
+    {% if income_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Source</th>
+                <th>Amount (IDR)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for income in income_data %}
+            <tr>
+                <td>{{ income.id }}</td>
+                <td>{{ income.date.strftime('%d/%m/%Y') }}</td>
+                <td>{{ income.source }}</td>
+                <td>IDR {{ "{:,}".format(income.amount) }}</td>
+                <td>
+                    <form action="{{ url_for('delete_income', income_id=income.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this income entry?');">
+                        <button type="submit" class="btn delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No income data available. Please add your income.</p>
+    {% endif %}
+    <a href="/set_income" class="btn">Add More Income</a>
+</div>
+{% endblock %}

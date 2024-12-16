@@ -1,0 +1,15 @@
+<!-- templates/display_data.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Processed Data</h1>
+    <div class="table-container">
+        {% for table in tables %}
+            {{ table | safe }}
+        {% endfor %}
+    </div>
+    <a href="/view_data" class="btn">View All Imported Data</a>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FinTrack - Financial Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Include Plotly.js if needed for future enhancements -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flashes">
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Header -->
+    <header>
+        <div class="logo">FinTrack</div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('import_data') }}">Import Data</a></li>
+                <li><a href="{{ url_for('view_data') }}">View Imported Data</a></li>
+                <li><a href="{{ url_for('set_income') }}">Set Income</a></li>
+                <li><a href="{{ url_for('view_income') }}">View Income</a></li>
+                <li><a href="{{ url_for('set_budget') }}">Set Expense</a></li>
+                <li><a href="{{ url_for('view_budget') }}">View Expense</a></li>
+                <li><a href="{{ url_for('set_goals') }}">Set Goals</a></li>
+                <li><a href="{{ url_for('view_goals') }}">View Goals</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FinTrack. All rights reserved.</p>
+    </footer>
+</body>
+</html>

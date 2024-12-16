@@ -1,0 +1,13 @@
+<!-- templates/goal_graph.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Goal Progression: {{ goal_name }}</h1>
+    <div class="plot-container">
+        {{ goal_graph|safe }}
+    </div>
+    <a href="{{ url_for('view_goals') }}" class="btn">Back to Goals</a>
+</div>
+{% endblock %}

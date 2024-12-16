@@ -1,0 +1,40 @@
+<!-- templates/view_budget.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Your Expense Data</h1>
+    {% if expense_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Amount (IDR)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expense_data %}
+            <tr>
+                <td>{{ expense.id }}</td>
+                <td>{{ expense.date.strftime('%d/%m/%Y') }}</td>
+                <td>{{ expense.category }}</td>
+                <td>IDR {{ "{:,}".format(expense.amount) }}</td>
+                <td>
+                    <form action="{{ url_for('delete_expense', expense_id=expense.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this expense entry?');">
+                        <button type="submit" class="btn delete-btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No expense data available. Please add your expenses.</p>
+    {% endif %}
+    <a href="/set_budget" class="btn">Add More Expense</a>
+</div>
+{% endblock %}

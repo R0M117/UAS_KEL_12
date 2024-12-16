@@ -1,0 +1,24 @@
+<!-- templates/set_budget.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Set Your Expense</h1>
+    <form action="{{ url_for('set_budget') }}" method="POST" class="import-form">
+        <div class="form-group">
+            <label for="date">Enter Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Enter Category:</label>
+            <input type="text" id="category" name="category" placeholder="e.g., Groceries, Rent" required>
+        </div>
+        <div class="form-group">
+            <label for="outcome">Enter Amount Outcome (in IDR):</label>
+            <input type="number" id="outcome" name="outcome" placeholder="e.g., 2000000" required>
+        </div>
+        <button type="submit" class="btn">Submit Expense</button>
+    </form>
+</div>
+{% endblock %}

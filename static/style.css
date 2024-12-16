@@ -1,0 +1,374 @@
+/* static/style.css */
+
+/* General Reset and Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #FFFFFF, #87CEEB); /* Gradient from white to sky blue */
+    color: #000;
+    font-size: 16px;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px; /* Height of the footer */
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background-color: #CCD1DB;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #27443a;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    padding: 8px 20px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FFD240;
+}
+
+/* Flash Message Styles */
+.flashes {
+    position: fixed;
+    top: 80px; /* Adjust based on header height */
+    right: 20px;
+    z-index: 1000;
+}
+
+.flash {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.flash.success {
+    background-color: #28a745;
+}
+
+.flash.warning {
+    background-color: #ffc107;
+}
+
+.flash.danger {
+    background-color: #dc3545;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 80px 100px 80px; /* Top padding adjusted for fixed header */
+    background-color: #F4F4F4;
+    color: black;
+    border-radius: 20px;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero-text .cta-btn {
+    background-color: #FFD240;
+    color: black;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero-text .cta-btn:hover {
+    background-color: #FFC107;
+}
+
+.hero img {
+    width: 50%;
+    border-radius: 20px;
+}
+
+/* Dashboard Section */
+.dashboard {
+    padding: 50px 80px;
+    background: #F5F5F5;
+}
+
+.dashboard h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #27443a;
+    text-align: center;
+}
+
+.dashboard .features {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dashboard-card {
+    background-color: #D3D3D3; /* Light Grey */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+    color: #333; /* Dark text for contrast */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-10px);
+}
+
+.dashboard-card img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.dashboard-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.dashboard-btn {
+    background-color: #FF5270;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.dashboard-btn:hover {
+    background-color: #FFC107;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #27443a;
+    color: white;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Container for Forms and Tables */
+.container {
+    max-width: 1000px;
+    margin: 120px auto 80px auto; /* Adjusted for fixed header and footer */
+    background-color: #F4F4F4;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.import-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #D3D3D3;
+    border-radius: 8px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #FFD240;
+    box-shadow: 0 0 5px rgba(255, 210, 64, 0.5);
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    background-color: #FFD240;
+    color: black;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #FFC107;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+    background-color: #dc3545; /* Red color for delete */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Delete All Data Button Styling */
+.delete-all-btn {
+    background-color: #dc3545; /* Red color for delete all */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+.delete-all-btn:hover {
+    background-color: #c82333;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px; /* Rounded corners */
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #27443a;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+table td {
+    word-wrap: break-word;
+}
+
+/* Plot Container */
+.plot-container {
+    margin-bottom: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 100px 20px 50px 20px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero img {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .dashboard .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        margin: 100px auto 80px auto;
+        width: 90%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
